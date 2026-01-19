@@ -1,46 +1,97 @@
-"use client";
-
-import { useInView } from "framer-motion";
-import React, { useRef } from "react";
-import { Button } from "../ui/button";
-import { SiGithub, SiInstagram, SiLinkedin, SiX } from "react-icons/si";
 import { config } from "@/data/config";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import Link from "next/link";
-
-const BUTTONS = [
-  {
-    name: "Github",
-    href: config.social.github,
-    icon: <SiGithub size={"24"} color={"#fff"} />,
-  },
-  {
-    name: "LinkedIn",
-    href: config.social.linkedin,
-    icon: <SiLinkedin size={"24"} color={"#fff"} />,
-  },
-  {
-    name: "Twitter",
-    href: config.social.twitter,
-    icon: <SiX size={"24"} color={"#fff"} />,
-  },
-  {
-    name: "Instagram",
-    href: config.social.instagram,
-    icon: <SiInstagram size={"24"} color={"#fff"} />,
-  },
-];
+import React from "react";
+import { Button } from "../ui/button";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { SiX } from "react-icons/si";
 
 const SocialMediaButtons = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const show = useInView(ref, { once: true });
   return (
-    <div ref={ref} className="z-10">
-      {show &&
-        BUTTONS.map((button) => (
-          <Link href={button.href} key={button.name} target="_blank">
-            <Button variant={"ghost"}>{button.icon}</Button>
-          </Link>
-        ))}
+    <div className="flex gap-2">
+      {/* Github */}
+      {config.social.github && (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link href={config.social.github} target="_blank">
+              <Button variant="ghost" size="icon">
+                <FaGithub className="h-4 w-4" />
+              </Button>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Github</p>
+          </TooltipContent>
+        </Tooltip>
+      )}
+
+      {/* LinkedIn */}
+      {config.social.linkedin && (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link href={config.social.linkedin} target="_blank">
+              <Button variant="ghost" size="icon">
+                <FaLinkedin className="h-4 w-4" />
+              </Button>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Linkedin</p>
+          </TooltipContent>
+        </Tooltip>
+      )}
+
+      {/* Twitter / X */}
+      {config.social.twitter && (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link href={config.social.twitter} target="_blank">
+              <Button variant="ghost" size="icon">
+                <SiX className="h-4 w-4" />
+              </Button>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>X (Twitter)</p>
+          </TooltipContent>
+        </Tooltip>
+      )}
+
+      {/* Instagram */}
+      {config.social.instagram && (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link href={config.social.instagram} target="_blank">
+              <Button variant="ghost" size="icon">
+                <FaInstagram className="h-4 w-4" />
+              </Button>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Instagram</p>
+          </TooltipContent>
+        </Tooltip>
+      )}
+
+      {/* Facebook */}
+      {config.social.facebook && (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link href={config.social.facebook} target="_blank">
+              <Button variant="ghost" size="icon">
+                <FaFacebook className="h-4 w-4" />
+              </Button>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Facebook</p>
+          </TooltipContent>
+        </Tooltip>
+      )}
     </div>
   );
 };

@@ -1,30 +1,26 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
-  JS = "js",
-  TS = "ts",
-  HTML = "html",
-  CSS = "css",
-  REACT = "react",
-  VUE = "vue",
-  NEXTJS = "nextjs",
-  TAILWIND = "tailwind",
-  NODEJS = "nodejs",
-  EXPRESS = "express",
-  POSTGRES = "postgres",
-  MONGODB = "mongodb",
-  GIT = "git",
-  GITHUB = "github",
-  PRETTIER = "prettier",
-  NPM = "npm",
-  FIREBASE = "firebase",
-  WORDPRESS = "wordpress",
-  LINUX = "linux",
-  DOCKER = "docker",
-  NGINX = "nginx",
-  AWS = "aws",
-  VIM = "vim",
-  VERCEL = "vercel",
+  // CX & CRM
+  ZENDESK = "zendesk",
+  CRM = "crm",
+  INTERCOM = "intercom", // Placeholder for chat tools like Crisp
+  SLACK = "slack",
+  CLICKUP = "clickup",
+  OFFICE = "office",
+  GOOGLE = "google",
+  ZOOM = "zoom",
+  
+  // Soft Skills (Represented generically)
+  LEADERSHIP = "leadership",
+  STRATEGY = "strategy",
+  COMMUNICATION = "communication",
+  MANAGEMENT = "management",
+  ANALYTICS = "analytics",
+  
+  // Tech/Ops
+  N8N = "n8n",
+  AI = "ai",
 }
+
 export type Skill = {
   id: number;
   name: string;
@@ -33,206 +29,128 @@ export type Skill = {
   color: string;
   icon: string;
 };
+
 export const SKILLS: Record<SkillNames, Skill> = {
-  [SkillNames.JS]: {
+  [SkillNames.ZENDESK]: {
     id: 1,
-    name: "js",
-    label: "JavaScript",
-    shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
-    color: "#f0db4f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    name: "zendesk",
+    label: "Zendesk",
+    shortDescription: "Mastering tickets & support flows 🎫",
+    color: "#03363D",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zendesk/zendesk-original.svg", // You might need to find a specific SVG if this doesn't exist in devicon
   },
-  [SkillNames.TS]: {
+  [SkillNames.CRM]: {
     id: 2,
-    name: "ts",
-    label: "TypeScript",
-    shortDescription:
-      "JavaScript's overachieving cousin who's always flexing 💯🔒",
+    name: "crm",
+    label: "CRM Systems",
+    shortDescription: "Managing client relationships like a pro 🤝",
     color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    icon: "https://cdn-icons-png.flaticon.com/512/993/993762.png", // Generic CRM icon
   },
-  [SkillNames.HTML]: {
+  [SkillNames.INTERCOM]: {
     id: 3,
-    name: "html",
-    label: "HTML",
-    shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    name: "crisp",
+    label: "Crisp / Live Chat",
+    shortDescription: "Real-time support & engagement 💬",
+    color: "#1c8de4",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/2/22/Crisp_wordmark.svg", 
   },
-  [SkillNames.CSS]: {
+  [SkillNames.SLACK]: {
     id: 4,
-    name: "css",
-    label: "CSS",
-    shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
-    color: "#563d7c",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    name: "slack",
+    label: "Slack",
+    shortDescription: "Team sync & rapid coordination 📢",
+    color: "#4A154B",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg",
   },
-  [SkillNames.REACT]: {
+  [SkillNames.CLICKUP]: {
     id: 5,
-    name: "react",
-    label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
-    color: "#61dafb",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    name: "clickup",
+    label: "ClickUp",
+    shortDescription: "Project management & workflows ✅",
+    color: "#7b68ee",
+    icon: "https://cdn.worldvectorlogo.com/logos/clickup.svg",
   },
-  [SkillNames.VUE]: {
+  [SkillNames.N8N]: {
     id: 6,
-    name: "vue",
-    label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    name: "n8n",
+    label: "n8n Automation",
+    shortDescription: "Automating the boring stuff 🤖",
+    color: "#ff6d5a",
+    icon: "https://cdn.worldvectorlogo.com/logos/n8n.svg",
   },
-  [SkillNames.NEXTJS]: {
+  [SkillNames.OFFICE]: {
     id: 7,
-    name: "nextjs",
-    label: "Next.js",
-    shortDescription:
-      "the drama queen of front-end frameworks, and we stan! 👑📜",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    name: "office",
+    label: "MS Office",
+    shortDescription: "The classic productivity suite 📊",
+    color: "#d83b01",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg",
   },
-  [SkillNames.TAILWIND]: {
+  [SkillNames.GOOGLE]: {
     id: 8,
-    name: "tailwind",
-    label: "Tailwind",
-    shortDescription: "utility classes hitting different fr fr 🌪️🔥",
-    color: "#38bdf8",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    name: "google",
+    label: "Google Workspace",
+    shortDescription: "Collaborating in the cloud ☁️",
+    color: "#4285F4",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
   },
-  [SkillNames.NODEJS]: {
+  [SkillNames.ZOOM]: {
     id: 9,
-    name: "nodejs",
-    label: "Node.js",
-    shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    name: "zoom",
+    label: "Zoom",
+    shortDescription: "Connecting faces globally 🎥",
+    color: "#2D8CFF",
+    icon: "https://cdn.worldvectorlogo.com/logos/zoom-communications-logo.svg",
   },
-  [SkillNames.EXPRESS]: {
+  [SkillNames.LEADERSHIP]: {
     id: 10,
-    name: "express",
-    label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    name: "leadership",
+    label: "Leadership",
+    shortDescription: "Guiding teams to success 🚀",
+    color: "#FFD700",
+    icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
   },
-  [SkillNames.POSTGRES]: {
+  [SkillNames.STRATEGY]: {
     id: 11,
-    name: "postgres",
-    label: "PostgreSQL",
-    shortDescription: "SQL but make it fashion, purr 💅🐘",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    name: "strategy",
+    label: "Strategy",
+    shortDescription: "Planning for growth & retention 📈",
+    color: "#FF4500",
+    icon: "https://cdn-icons-png.flaticon.com/512/1584/1584942.png",
   },
-  [SkillNames.MONGODB]: {
+  [SkillNames.COMMUNICATION]: {
     id: 12,
-    name: "mongodb",
-    label: "MongoDB",
-    shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    name: "communication",
+    label: "Communication",
+    shortDescription: "Clear, concise, and human-centric 🗣️",
+    color: "#32CD32",
+    icon: "https://cdn-icons-png.flaticon.com/512/2665/2665569.png",
   },
-  [SkillNames.GIT]: {
+  [SkillNames.MANAGEMENT]: {
     id: 13,
-    name: "git",
-    label: "Git",
-    shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
-    color: "#f1502f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    name: "management",
+    label: "Management",
+    shortDescription: "Orchestrating complex operations 🏗️",
+    color: "#808080",
+    icon: "https://cdn-icons-png.flaticon.com/512/2643/2643627.png",
   },
-  [SkillNames.GITHUB]: {
+  [SkillNames.ANALYTICS]: {
     id: 14,
-    name: "github",
-    label: "GitHub",
-    shortDescription: "sliding into those pull requests, IYKYK! 🐙",
-    color: "#000000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    name: "analytics",
+    label: "Analytics",
+    shortDescription: "Data-driven decision making 📊",
+    color: "#00008B",
+    icon: "https://cdn-icons-png.flaticon.com/512/2920/2920323.png",
   },
-  [SkillNames.PRETTIER]: {
+  [SkillNames.AI]: {
     id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
-  },
-  [SkillNames.NPM]: {
-    id: 16,
-    name: "npm",
-    label: "NPM",
-    shortDescription: "package manager said 'I gotchu fam', period! 📦💯",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
-  },
-  [SkillNames.FIREBASE]: {
-    id: 17,
-    name: "firebase",
-    label: "Firebase",
-    shortDescription:
-      "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
-    color: "#ffca28",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  },
-  [SkillNames.WORDPRESS]: {
-    id: 18,
-    name: "wordpress",
-    label: "WordPress",
-    shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-  },
-  [SkillNames.LINUX]: {
-    id: 19,
-    name: "linux",
-    label: "Linux",
-    shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-  },
-  [SkillNames.DOCKER]: {
-    id: 20,
-    name: "docker",
-    label: "Docker",
-    shortDescription: "The best containerization! 🐳🔥",
-    color: "#2496ed",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  },
-  [SkillNames.NGINX]: {
-    id: 21,
-    name: "nginx",
-    label: "NginX",
-    shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
-    color: "#008000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
-  },
-  [SkillNames.AWS]: {
-    id: 22,
-    name: "aws",
-    label: "AWS",
-    shortDescription:
-      "always extra, making everything more complicated, period! 🌐👨‍💻",
-    color: "#ff9900",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
-  },
-  [SkillNames.VIM]: {
-    id: 23,
-    name: "vim",
-    label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
-  },
-  [SkillNames.VERCEL]: {
-    id: 24,
-    name: "vercel",
-    label: "Vercel",
-    shortDescription:
-      "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
-  },
+    name: "ai",
+    label: "AI Agents",
+    shortDescription: "Implementing RAG & Support Bots 🤖",
+    color: "#00CED1",
+    icon: "https://cdn-icons-png.flaticon.com/512/2103/2103832.png",
+  }
 };
 
 export type Experience = {
@@ -248,58 +166,88 @@ export type Experience = {
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
-    startDate: "Dec 2024",
+    startDate: "July 2025",
     endDate: "Present",
-    title: "Full Stack Engineer",
-    company: "OmniNexus",
+    title: "Team Lead, Customer Experience",
+    company: "Priyo Pay",
     description: [
-      "Developing scalable full-stack applications involved in complex systems.",
-      "Optimizing database performance and query efficiency.",
-      "Collaborating on architectural decisions and technical strategy.",
+      "Lead the CX department to ensure seamless onboarding and post-support for thousands of users.",
+      "Implement quality standards to reduce support escalations and enhance customer trust.",
+      "Manage customer communication using Zendesk and Crisp, and build CX automation using n8n and AI agents.",
+      "Coordinate with Product, Risk, and Compliance teams to resolve high-impact KYC/AML issues.",
     ],
     skills: [
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.POSTGRES,
-      SkillNames.DOCKER,
-      SkillNames.AWS,
+      SkillNames.LEADERSHIP,
+      SkillNames.ZENDESK,
+      SkillNames.N8N,
+      SkillNames.AI,
+      SkillNames.STRATEGY,
     ],
   },
   {
     id: 2,
-    startDate: "Apr 2022",
-    endDate: "Dec 2024",
-    title: "Freelance Developer",
-    company: "Live & Learn",
+    startDate: "Aug 2022",
+    endDate: "Present",
+    title: "Operations Manager, Client Experience",
+    company: "LC-Ecommerce (Remote, USA)",
     description: [
-      "Delivered custom web solutions for diverse clients.",
-      "Managed full project lifecycles from design to deployment.",
-      "Maintained high client satisfaction through effective communication.",
+      "Manage seller and buyer accounts ensuring full compliance and seamless onboarding.",
+      "Act as primary point of contact for clients, resolving inquiries and driving long-term partnerships.",
+      "Spearhead daily operational workflows, increasing task efficiency by 35%."
     ],
     skills: [
-      SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.MONGODB,
-      SkillNames.TAILWIND,
-      SkillNames.WORDPRESS,
+      SkillNames.MANAGEMENT,
+      SkillNames.CRM,
+      SkillNames.ANALYTICS,
+      SkillNames.COMMUNICATION,
+    ],
+  },
+  {
+    id: 3,
+    startDate: "Jul 2023",
+    endDate: "Jun 2025",
+    title: "Team Lead, Customer Experience",
+    company: "Ostad Ltd.",
+    description: [
+      "Led a CX team of 10 and coordinated with 30+ instructors to support over 5,000 learners.",
+      "Reduced response time to under 1 hour and increased student satisfaction scores by 25%.",
+      "Oversaw 25+ active batches and implemented the 3C Engagement Framework.",
+    ],
+    skills: [
+      SkillNames.LEADERSHIP,
+      SkillNames.SLACK,
+      SkillNames.STRATEGY,
+      SkillNames.ZOOM,
+    ],
+  },
+  {
+    id: 4,
+    startDate: "Sep 2020",
+    endDate: "Dec 2021",
+    title: "Executive, Client Experience",
+    company: "CM Work Solutions",
+    description: [
+      "Managed Amazon and Walmart seller accounts to optimize client and customer experience.",
+      "Enhanced buyer experience by providing prompt support and resolving issues proactively.",
+      "Maintained a minimum 30% profit margin across all managed accounts.",
+    ],
+    skills: [
+      SkillNames.CRM,
+      SkillNames.OFFICE,
+      SkillNames.COMMUNICATION,
     ],
   },
 ];
 
 export const themeDisclaimers = {
   light: [
-    "Warning: Light mode emits a gazillion lumens of pure radiance!",
-    "Caution: Light mode ahead! Please don't try this at home.",
-    "Only trained professionals can handle this much brightness. Proceed with sunglasses!",
-    "Brace yourself! Light mode is about to make everything shine brighter than your future.",
-    "Flipping the switch to light mode... Are you sure your eyes are ready for this?",
+    "Warning: Bright future ahead! (Just like your screen)",
+    "Turning on the lights...",
+    "Flashbang out! 💡",
   ],
   dark: [
-    "Light mode? I thought you went insane... but welcome back to the dark side!",
-    "Switching to dark mode... How was life on the bright side?",
-    "Dark mode activated! Thanks you from the bottom of my heart, and my eyes too.",
-    "Welcome back to the shadows. How was life out there in the light?",
-    "Dark mode on! Finally, someone who understands true sophistication.",
+    "Going dark mode...",
+    "Welcome to the comfort zone.",
+    "Relaxing your eyes...",
   ],
 };
-

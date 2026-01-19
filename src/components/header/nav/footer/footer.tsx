@@ -1,64 +1,30 @@
-import styles from './style.module.scss';
-import { translate } from '../../anim';
-import { motion } from 'framer-motion';
+import React from "react";
+import { FaFacebook, FaLinkedin } from "react-icons/fa6"; // Changed icons
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { config } from "@/data/config"; // Import your config
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
-      <ul>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          {/* space */}
-          <span>Inspired by:</span> Studio Lumio
-        </motion.li>
-      </ul>
-      <ul>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          <span>Typography:</span> Inter
-        </motion.li>
-      </ul>
-      <ul>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          <span>Images:</span> Unsplash
-        </motion.li>
-      </ul>
-      <ul>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          Blog
-        </motion.li>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          Newsletter
-        </motion.li>
-      </ul>
+    <div className="flex w-full flex-col justify-end pb-[100px] px-[40px]">
+      <div className="text-xs font-bold text-gray-500 mb-4">SOCIALS</div>
+      <div className="flex gap-4">
+        {/* LinkedIn */}
+        {config.social.linkedin && (
+          <Link href={config.social.linkedin} target="_blank">
+            <Button variant="outline" size="icon" className="rounded-full">
+              <FaLinkedin className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
+        
+        {/* Facebook */}
+        <Link href="https://www.facebook.com/meetsagorkhan/" target="_blank">
+          <Button variant="outline" size="icon" className="rounded-full">
+            <FaFacebook className="h-4 w-4" />
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }
