@@ -4,11 +4,10 @@ import React, { useEffect, useState } from "react";
 import { 
   FaEnvelope, 
   FaLinkedin, 
-  FaHeadset, 
-  FaUsers, 
-  FaChartLine, 
   FaWhatsapp,
-  FaRobot
+  FaRobot,
+  FaChartLine,
+  FaUsers
 } from "react-icons/fa6";
 import {
   SiZendesk,
@@ -17,10 +16,10 @@ import {
   SiGoogle,
   SiZoom,
   SiCanva,
-  SiN8N,
+  SiN8n,           // <--- FIXED: Correct casing (lowercase 'n')
   SiSalesforce,
   SiHubspot,
-  SiMicrosoftoffice
+  SiMicrosoft,     // <--- FIXED: Switched to standard Microsoft logo
 } from "react-icons/si";
 
 // @ts-ignore
@@ -32,19 +31,19 @@ const CONTACT_LINKS = [
     name: "Email",
     content: "meetmdsagorkhan@gmail.com",
     href: "mailto:meetmdsagorkhan@gmail.com",
-    icon: <FaEnvelope height={"50px"} />,
+    icon: <FaEnvelope size={"24px"} />,
   },
   {
     name: "WhatsApp",
     content: "+880 1309331446",
     href: "https://wa.me/8801309331446",
-    icon: <FaWhatsapp height={"50px"} />,
+    icon: <FaWhatsapp size={"24px"} />,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/meetmdsagorkhan/",
     content: "/meetmdsagorkhan",
-    icon: <FaLinkedin height={"50px"} />,
+    icon: <FaLinkedin size={"24px"} />,
   },
 ];
 
@@ -71,7 +70,7 @@ const TOOLS = [
   },
   {
     name: "n8n Automation",
-    icon: <SiN8N size={"50px"} color="#ff6d5a" />,
+    icon: <SiN8n size={"50px"} color="#ff6d5a" />,
   },
   {
     name: "CRM Systems",
@@ -87,7 +86,7 @@ const TOOLS = [
   },
   {
     name: "Office 365",
-    icon: <SiMicrosoftoffice size={"50px"} color="#D83B01" />,
+    icon: <SiMicrosoft size={"50px"} color="#D83B01" />,
   },
   {
     name: "AI Agents",
@@ -120,7 +119,6 @@ function Page() {
           >
             <div className="flex flex-row lg:flex-col items-center">
               <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
-                {/* Make sure to add your photo as 'me.jpg' in public/assets folder */}
                 <img
                   className="rounded-full p-1 lg:p-2 w-[100px] md:w-[150px] lg:w-[200px] aspect-square object-cover bg-zinc-800"
                   alt="Md Sagor Khan"

@@ -1,108 +1,87 @@
-import { EXPERIENCE, SkillNames, SKILLS } from "@/data/constants";
-import { SectionHeader } from "./section-header";
-import { Badge } from "../ui/badge";
-import { cn } from "@/lib/utils";
+"use client";
+
 import SectionWrapper from "../ui/section-wrapper";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SectionHeader } from "./section-header";
+import { Badge } from "@/components/ui/badge";
+import { EXPERIENCE, SKILLS } from "@/data/constants";
 
 const ExperienceSection = () => {
   return (
-    <SectionWrapper
-      className="flex flex-col items-center justify-center min-h-[120vh] py-20 z-10"
-    >
-      <div className="w-full max-w-4xl px-4 md:px-8 mx-auto">
-        <SectionHeader
-          id="experience"
-          title="Experience"
-          desc="My professional journey."
-          className="mb-12 md:mb-20 mt-0"
-        />
-
-        <div className="flex flex-col gap-8 md:gap-12 relative">
-          {/* Connector Line - simplified to a subtle border */}
-          <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-px bg-border hidden md:block -translate-x-1/2" />
-
-          {EXPERIENCE.map((exp, index) => (
-            <div key={exp.id} className="relative">
-              <ExperienceCard experience={exp} index={index} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </SectionWrapper>
-  );
-};
-
-const ExperienceCard = ({
-  experience,
-  index,
-}: {
-  experience: (typeof EXPERIENCE)[0];
-  index: number;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.4,
-        delay: index * 0.1,
-        ease: "easeOut",
-      }}
-      viewport={{ once: true, margin: "-50px" }}
-    >
-      <Card
-        className={cn(
-          "bg-card text-card-foreground border-border",
-          "hover:border-primary/20 transition-colors duration-300",
-          "shadow-sm hover:shadow-md"
-        )}
-      >
-        <CardHeader className="pb-3">
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-            <div className="space-y-1">
-              <CardTitle className="text-xl font-bold tracking-tight">
-                {experience.title}
-              </CardTitle>
-              <div className="text-base font-medium text-muted-foreground">
-                {experience.company}
+    <SectionWrapper id="experience" className="w-full">
+      <SectionHeader 
+        id='experience'
+        title="Experience" 
+        desc="A timeline of solving problems and putting out fires." 
+      />
+      
+      <div className="flex flex-col gap-12 max-w-4xl mx-auto mt-12">
+        {EXPERIENCE.map((job) => (
+          <div 
+            key={job.id} 
+            className="group relative border-l-2 border-zinc-800 pl-8 pb-12 last:pb-0"
+          >
+            {/* Timeline Dot */}
+            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-zinc-900 border-2 border-zinc-700 group-hover:border-white transition-colors duration-300" />
+            
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 className="text-2xl font-bold text-zinc-100 group-hover:text-white transition-colors">
+                  {job.title}
+                </h3>
+                <div className="text-lg text-zinc-400 font-medium">
+                  {job.company}
+                </div>
+              </div>
+              <div className="text-sm font-mono text-zinc-500 bg-zinc-900/50 px-3 py-1 rounded-full border border-zinc-800">
+                {job.startDate} — {job.endDate}
               </div>
             </div>
-            <Badge variant="secondary" className="w-fit font-mono text-xs font-normal">
-              {experience.startDate} - {experience.endDate}
-            </Badge>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <ul className="list-disc list-outside ml-4 space-y-2 text-base text-muted-foreground leading-relaxed">
-            {experience.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
 
-          <div className="flex flex-wrap gap-2">
-            {experience.skills.map((skillName) => {
-              const skill = SKILLS[skillName as SkillNames];
-              return (
-                <Badge
-                  key={skillName}
-                  variant="outline"
-                  className="gap-2 text-xs font-normal bg-secondary/30 hover:bg-secondary/50 transition-colors border-transparent"
-                >
-                  <img
-                    src={skill.icon}
-                    alt={skill.label}
-                    className="w-3.5 h-3.5 object-contain opacity-80"
-                  />
-                  {skill.label}
-                </Badge>
-              );
-            })}
+            {/* Description */}
+            <ul className="flex flex-col gap-2 mb-6">
+              {job.description.map((point, i) => (
+                <li key={i} className="text-zinc-400 text-base leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-zinc-700">
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            {/* Skills Badges */}
+            <div className="flex flex-wrap gap-2">
+              {job.skills.map((skillName, index) => {
+                const skill = SKILLS[skillName];
+                
+                // 🛡️ SAFETY CHECK: If a skill is missing/undefined, skip it instead of crashing
+                if (!skill) return null;
+
+                return (
+                  <Badge
+                    key={index}
+                    variant="secondary"
+                    className="align-middle text-xs flex items-center gap-1.5 px-2 py-1 transition-all hover:scale-105 select-none"
+                    style={{
+                      backgroundColor: `${skill.color}15`,
+                      color: skill.color,
+                      borderColor: `${skill.color}30`,
+                      borderWidth: '1px'
+                    }}
+                  >
+                    {/* RESTORED: Using img tag because skill.icon is now a string URL */}
+                    <img 
+                      src={skill.icon} 
+                      alt={skill.label} 
+                      className="w-3.5 h-3.5 object-contain opacity-80" 
+                    />
+                    {skill.label}
+                  </Badge>
+                );
+              })}
+            </div>
           </div>
-        </CardContent>
-      </Card>
-    </motion.div>
+        ))}
+      </div>
+    </SectionWrapper>
   );
 };
 
